@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="header" (click)="toggleTheme()">
+        <img *ngIf="!lightMode" class="header-dark" src="../../assets/images/bg-desktop-dark.jpg" alt="Dark BG">
+        <img *ngIf="lightMode" class="header-light" src="../../assets/images/bg-desktop-light.jpg" alt="Light BG">
+    </div>
+
+    <div class="wrapper">
+        <div class="main-todo">
+            <div class="top-part">
+                <h1>TODO</h1>
+                <div class="theme" (click)="toggleTheme()">
+                    <img *ngIf="lightMode" class="icon moon" src="../../assets/images/icon-moon.svg" alt="Moon">
+                    <img *ngIf="!lightMode" class="icon sun" src="../../assets/images/icon-sun.svg" alt="Sun">
+                </div>
+            </div>
+
+            <div class="create-todo">
+                <div class="check-box" (click)="addTodo()"></div>
+                <div class="input">
+                    <input type="text" [(ngModel)]="newText" placeholder="Create a new todo..." (keyup.enter)="addTodo()">
+                </div>
+            </div>
+
+            <div class="todo-list" cdkDropList cdkDropListOrientation="vertical" (cdkDropListDropped)="drop($event)">
+                
+                <div class="item" *ngFor="let item of list;" cdkDrag cdkDragLockAxis="y"
+                    [class.is-completed]="item.isCompleted">
+                    
+                    <div class="left">
+                        <div class="check-box" [class.active]="item.isCompleted" (click)="toggleActive(item.id)">
+                            <img *ngIf="item.isCompleted" src="../../assets/images/icon-check.svg" alt="Checked">
+                        </div>
+                        <p [class.completed]="item.isCompleted">{{ item.text }}</p>
+                    </div>
+
+                    <div class="delete" (click)="deleteItem(item.id)">
+                        <img src="../../assets/images/icon-cross.svg" alt="Delete">
+                    </div>
+                </div>
+
+                <div class="bottom-part">
+                    <p class="list-size">{{ listSize }} items left</p>
+
+                    <div class="options">
+                        <p class="all" (click)="setFilter('all')" [class.selected]="currentFilter === 'all'">All</p>
+                        <p class="active" (click)="setFilter('active')" [class.selected]="currentFilter === 'active'">Active</p>
+                        <p class="completed" (click)="setFilter('completed')" [class.selected]="currentFilter === 'completed'">Completed</p>
+                    </div>
+
+                    <p class="clear" (click)="clearCompleted()">Clear Completed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

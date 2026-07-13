@@ -1,0 +1,29 @@
+# Angular
+node_modules/
+dist/
+tmp/
+out-tsc/
+bazel-out/
+.angular/
+coverage/
+.sass-cache/
+
+# ASP.NET Core
+bin/
+obj/
+.vs/
+
+# Visual Studio
+*.user
+*.suo
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db

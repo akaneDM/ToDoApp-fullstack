@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --bg-dark-opacity: 1;
+    --bg-light-opacity: 0;
+
+    --sun-opacity: 1;
+    --sun-transform: rotate(0deg);
+    --moon-opacity: 0;
+    --moon-transform: rotate(-180deg);
+    --moon-background: hsl(235, 21%, 11%);
+    --moon-todo: hsl(235, 24%, 19%);
+
+    --moon-color: hsl(234, 39%, 85%);
+
+    --moon-border:  hsl(237, 14%, 26%);
+    --moon-box-shadow: 0px 20px 30px -6px rgba(15, 15, 15, 0.75);
+
+    --completed: hsl(233, 14%, 35%);
+
+    --hover: hsl(236, 33%, 92%);
+}
+
+:root.light-mode {
+    --bg-dark-opacity: 0;
+    --bg-light-opacity: 1;
+
+    --sun-opacity: 0;
+    --sun-transform: rotate(180deg);
+    --moon-opacity: 1;
+    --moon-transform: rotate(0deg);
+    --moon-background: hsl(0, 0%, 98%);
+    --moon-todo: hsl(0, 0%, 98%);
+
+    --moon-color: hsl(235, 21%, 11%) ;
+
+    --moon-border: hsl(234, 39%, 85%);
+    --moon-box-shadow: 0px 20px 30px -6px rgba(199, 199, 199, 0.75);
+
+    --completed: hsl(234, 39%, 85%);
+
+    --hover: hsl(235, 21%, 11%);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+}
