@@ -29,7 +29,7 @@ export class ApiService {
   }
 
   getItems(): Observable<any[]> {
-    return this.http.get<any>(`${this.apiUrl}/Get-List`, { headers: this.getHeaders() });;
+    return this.http.get<any>(`${this.apiUrl}/Get-List`, { headers: this.getHeaders() });
   }
 
   getActiveItems(): Observable<any> {

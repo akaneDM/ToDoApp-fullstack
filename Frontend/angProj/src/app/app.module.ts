@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     DragDropModule,
     HttpClientModule,
-    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

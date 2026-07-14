@@ -5,6 +5,20 @@
     height: 100vh;
     overflow: hidden;
 
+    button {
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: none;
+        appearance: none;
+        box-sizing: border-box;
+        line-height: 1;
+
+    }
+
     .header {
         width: 100%;
         height: 300px;
@@ -125,6 +139,12 @@
                         color: var(--moon-color);
                         font-size: 17px;
                         font-family: 'Josefin Sans', sans-serif;
+
+                        &:focus-visible
+                        {
+                            outline: 2px solid hsl(220,98%,61%);
+                            outline-offset: 2px;
+                        }
                     }
                 }
 
@@ -380,7 +400,7 @@
                 position: relative;
                 background-color: var(--moon-todo);
                 border-radius: 5px;
-                
+
 
                 .options {
                     display: flex;
