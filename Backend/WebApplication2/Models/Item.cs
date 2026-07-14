@@ -9,4 +9,6 @@ public class Item
 
     public string Date { get; set; }
 
+    public string DeviceId { get; set; }
+
 }

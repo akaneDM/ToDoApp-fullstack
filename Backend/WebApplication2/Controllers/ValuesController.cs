@@ -23,10 +23,13 @@ public class ValuesController : ControllerBase
 
     public ActionResult AddItem(AddItem req)
     {
+        var deviceId = Request.Headers["X-Device-Id"].ToString();
+
         Item newItem = new Item {
             Text = req.Text,
             IsCompleted = false,
             Date = DateTime.Now.ToString("yyyy-mm-dd, hh-mm"),
+            DeviceId = deviceId,
         };
         _context.items.Add(newItem);
         _context.SaveChanges();
@@ -38,8 +41,9 @@ public class ValuesController : ControllerBase
     [HttpGet("Get-List")]
     public ActionResult GetList()
     {
+        var deviceId = Request.Headers[" X-Device-Id"].ToString();
 
-        var list = _context.items.ToList();
+        var list = _context.items.Where(x => x.DeviceId == deviceId).ToList();
         return Ok(list);
     }
 
@@ -48,9 +52,10 @@ public class ValuesController : ControllerBase
     public ActionResult GetActive()
     {
 
+        var deviceId = Request.Headers[" X-Device-Id"].ToString();
 
 
-        var activeItems = _context.items.Where(x => x.IsCompleted == false).ToList();
+        var activeItems = _context.items.Where(x => x.IsCompleted == false && x.DeviceId == deviceId).ToList();
         return Ok(activeItems);
     }
 
@@ -58,8 +63,9 @@ public class ValuesController : ControllerBase
 
     public ActionResult GetCompleted()
     {
+        var deviceId = Request.Headers[" X-Device-Id"].ToString();
 
-        var completedItems = _context.items.Where(x => x.IsCompleted == true).ToList();
+        var completedItems = _context.items.Where(x => x.IsCompleted == true && x.DeviceId == deviceId).ToList();
         return Ok(completedItems);
     }
 

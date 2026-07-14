@@ -15,7 +15,7 @@ export class ApiService {
     let id = localStorage.getItem('my_device_id');
     if (!id) {
 
-      id = Math.random().toString(36).substring(2) + Date.now().toString(36);
+      id = crypto.randomUUID();
       localStorage.setItem('my_device_id', id);
     }
 

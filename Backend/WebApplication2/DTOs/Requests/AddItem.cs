@@ -8,5 +8,4 @@ public class AddItem
 
     public string Date = DateTime.Now.ToString("yyyy-mm-dd, hh-mm");
 
-
 }
