@@ -23,6 +23,7 @@ obj/
 # Environment files
 .env
 .env.*
+appsettings.Development.json
 
 # OS files
 .DS_Store

@@ -5,7 +5,6 @@ using WebApplication2.Data;
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.DTOs.Requests;
 using WebApplication2.Migrations;
-
 namespace WebApplication2.Controllers;
 
 [Route("api/[controller]")]
