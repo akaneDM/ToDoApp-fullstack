@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  private apiUrl = 'https://localhost:7132/api/Values'
+  private apiUrl = 'https://todoapp-fullstack-p1i3.onrender.com/api/Values';
 
   constructor(private http: HttpClient) { }
 
@@ -24,12 +24,12 @@ export class ApiService {
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({
-      'X-Device-Id': this.getOrCreateDeviceId() 
+      'X-Device-Id': this.getOrCreateDeviceId()
     });
   }
 
   getItems(): Observable<any[]> {
-    return this.http.get<any>(`${this.apiUrl}/Get-List`,{ headers: this.getHeaders() });;
+    return this.http.get<any>(`${this.apiUrl}/Get-List`, { headers: this.getHeaders() });;
   }
 
   getActiveItems(): Observable<any> {
