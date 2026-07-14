@@ -7,7 +7,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200") 
+        policy.WithOrigins("http://localhost:4200", "https://todoappfull.netlify.app") 
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
@@ -16,8 +16,6 @@ builder.Services.AddCors(options =>
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDbContext<DataContext>();
-// Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
