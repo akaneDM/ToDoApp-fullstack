@@ -41,7 +41,7 @@ public class ValuesController : ControllerBase
     [HttpGet("Get-List")]
     public ActionResult GetList()
     {
-        var deviceId = Request.Headers[" X-Device-Id"].ToString();
+        var deviceId = Request.Headers["X-Device-Id"].ToString();
 
         var list = _context.items.Where(x => x.DeviceId == deviceId).ToList();
         return Ok(list);
@@ -52,7 +52,7 @@ public class ValuesController : ControllerBase
     public ActionResult GetActive()
     {
 
-        var deviceId = Request.Headers[" X-Device-Id"].ToString();
+        var deviceId = Request.Headers["X-Device-Id"].ToString();
 
 
         var activeItems = _context.items.Where(x => x.IsCompleted == false && x.DeviceId == deviceId).ToList();
@@ -63,7 +63,7 @@ public class ValuesController : ControllerBase
 
     public ActionResult GetCompleted()
     {
-        var deviceId = Request.Headers[" X-Device-Id"].ToString();
+        var deviceId = Request.Headers["X-Device-Id"].ToString();
 
         var completedItems = _context.items.Where(x => x.IsCompleted == true && x.DeviceId == deviceId).ToList();
         return Ok(completedItems);
